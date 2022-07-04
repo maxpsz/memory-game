@@ -49,10 +49,8 @@ function App() {
       );
     }
 
-    resetTurn();
+    setTimeout(() => resetTurn(), 1000);
   }, [choiceOne, choiceTwo]);
-
-  console.log(cards);
 
   return (
     <div className='App'>
@@ -61,7 +59,12 @@ function App() {
 
       <div className='card-grid'>
         {cards.map(card => (
-          <Card key={card.id} card={card} handleChoice={handleChoice} />
+          <Card
+            key={card.id}
+            card={card}
+            handleChoice={handleChoice}
+            flipped={[choiceOne, choiceTwo].includes(card) || card.matched}
+          />
         ))}
       </div>
     </div>
