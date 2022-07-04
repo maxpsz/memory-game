@@ -5,12 +5,12 @@ import Card from './components/Card';
 import './App.css';
 
 const cardImages = [
-  { src: '/img/helmet-1.png' },
-  { src: '/img/potion-1.png' },
-  { src: '/img/ring-1.png' },
-  { src: '/img/scroll-1.png' },
-  { src: '/img/shield-1.png' },
-  { src: '/img/sword-1.png' }
+  { src: '/img/helmet-1.png', matched: false },
+  { src: '/img/potion-1.png', matched: false },
+  { src: '/img/ring-1.png', matched: false },
+  { src: '/img/scroll-1.png', matched: false },
+  { src: '/img/shield-1.png', matched: false },
+  { src: '/img/sword-1.png', matched: false }
 ];
 
 function App() {
@@ -41,10 +41,18 @@ function App() {
   useEffect(() => {
     if (!choiceOne || !choiceTwo) return;
 
-    console.log(choiceOne.src === choiceTwo.src ? 'Those cards match' : 'Those cards do not match');
+    if (choiceOne.src === choiceTwo.src) {
+      setCards(prevCards =>
+        prevCards.map(card => {
+          return card.src === choiceOne.src ? { ...card, matched: true } : card;
+        })
+      );
+    }
 
     resetTurn();
   }, [choiceOne, choiceTwo]);
+
+  console.log(cards);
 
   return (
     <div className='App'>
