@@ -4,6 +4,10 @@
 ## About The Project
 
 This is a small project app on the **Memory Game** section of the course [Build Web Apps with React & Firebase](https://www.udemy.com/course/build-web-apps-with-react-firebase/) from [The Net Ninja](https://netninja.dev/).
+
+<img width="480" alt="image" src="https://user-images.githubusercontent.com/12741431/177180240-49f90523-cae7-421f-ab7b-b240d91faf6f.png">
+
+
 ### Built With
 
 * [React.js](https://reactjs.org/)
